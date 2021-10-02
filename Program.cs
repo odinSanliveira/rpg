@@ -5,25 +5,12 @@ namespace rpg
     class Program
     {
         static void Main(string[] args)
-        {
-            Hero mf = new Hero();
-            Monster odin  = new Monster();
-            Console.WriteLine(mf.damage);
+        {   //Como relacionar objeto com letra na posição do grid?
+            //
+            Hero frodo = new Hero();
+            Monster Orc  = new Monster();
 
-            Console.WriteLine("Dano do Heróis");
-            Console.WriteLine(mf.GetDamage());
-            Console.WriteLine("Vida do Heróis");
-            Console.WriteLine(mf.GetHealthValue());
-            Console.WriteLine("Herói vivo?");
-            Console.WriteLine(mf.GetAlive());
-
-            Console.WriteLine("Dano do Monstro");
-            Console.WriteLine(odin.GetDamage());
-            Console.WriteLine("Vida do Monstro");
-            odin.GetHealth();
-
-            mf.Attack(odin);
-            odin.GetHealth();
+            Print2DGrid();
             
             
 
@@ -39,10 +26,10 @@ namespace rpg
                 {
                     if (i == 0 && j == 0)
                     {
-                        table[i , j] = "h";
+                        table[i , j] = "H";
                         
                     }else{
-                        table[i , j] = "o";
+                        table[i , j] = "O";
 
                     }
                 }
@@ -57,6 +44,15 @@ namespace rpg
                 }
                 Console.WriteLine();
             }
+            
+                Console.WriteLine("====================================================");
+                Console.WriteLine("[W] To move up   " + "[S] To move down");
+                Console.WriteLine("[A] To move left   " + "[D] To move right");
+                Console.WriteLine("[SPACE] To move up   " + "[ESC] To move Down");
+                Console.WriteLine("====================================================");
+                
+                ConsoleKeyInfo comando;
+                comando = Console.ReadKey();
         }
     }
 }
