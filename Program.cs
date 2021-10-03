@@ -52,7 +52,23 @@ namespace rpg
                 Console.WriteLine("====================================================");
                 
                 ConsoleKeyInfo comando;
-                comando = Console.ReadKey();
+                
+                // Console.WriteLine("LETRA DIGITADA : {0}", comando);
+
+                do{
+                    comando = Console.ReadKey();
+                    Console.Write(" --- You pressed ");
+                    if((comando.Modifiers & ConsoleModifiers.Alt) != 0) Console.Write("ALT+");
+                    if((comando.Modifiers & ConsoleModifiers.Shift) != 0) Console.Write("SHIFT+");
+                    if((comando.Modifiers & ConsoleModifiers.Control) != 0) Console.Write("CTL+");
+                    Console.WriteLine(comando.Key.ToString());
+                }while(comando.Key != ConsoleKey.Escape);
+                //reader key
+                // switch (comando)
+                // {
+                    
+                // }
+                
         }
     }
 }
