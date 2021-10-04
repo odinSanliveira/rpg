@@ -11,13 +11,7 @@ namespace rpg{
             return victory;
             
         }
-<<<<<<< HEAD
-
-    }
-}
-=======
         
 
     }
 }
->>>>>>> fbaf70699576be333bd236700e6e777ec3774b73
