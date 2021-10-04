@@ -6,8 +6,9 @@ namespace rpg
     {
         static void Main(string[] args)
         {   //Como relacionar objeto com letra na posição do grid?
-            //
+            //instancia de objeto
             // Hero frodo = new Hero();
+
             Monster Orc  = new Monster();
 
             Print2DGrid();

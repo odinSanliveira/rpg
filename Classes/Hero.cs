@@ -3,11 +3,12 @@ using System;
 namespace rpg{
     public class Hero : Warrior{
         public string icon = 'H';
+
+        public int[] position = new int[0, 0];
         public Hero() : base(){
             this.alive = true;
             this.health = 25;
             this.damage = 1;
-            GetHealth();
 
         }
          public override void GetHealth(){
@@ -48,22 +49,22 @@ namespace rpg{
         public void Attack(Boss boss){}
         
 
-        public int[] toDirection(string move){
+        // public int[] toDirection(string move){
 
-            switch (move)
-            {
-                case 'w':
-                    return new int[] {-1, 0};
-                case 'a':
-                    return new int[] {0, -1};
-                case 's':
-                    return new int[] {1, 0};
-                case 'd':
-                    return new int[] {0, 1};
-                default:
+        //     switch (move)
+        //     {
+        //         case 'w':
+        //             return new int[] {-1, 0};
+        //         case 'a':
+        //             return new int[] {0, -1};
+        //         case 's':
+        //             return new int[] {1, 0};
+        //         case 'd':
+        //             return new int[] {0, 1};
+        //         default:
 
-                    return new int[] {0, 0};
-            }
+        //             return new int[] {0, 0};
+        //     }
             
         }
     }
