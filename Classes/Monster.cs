@@ -1,6 +1,7 @@
 using System;
 namespace rpg{
     public class Monster : Warrior{
+        // char icon = 'M';
        
         int defeatedPoint = 5;
         public Monster () : base(){
