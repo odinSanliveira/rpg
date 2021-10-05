@@ -122,26 +122,26 @@ namespace rpg
             //below code check if there is a "hero" arround
             
             //up
-            if(randomY == -1 && worldMap.GetElementAt(boss.X, boss.Y-1) != "H"){
-                if(worldMap.isPositionWalkable(boss.X, boss.Y-1)){
+            if( worldMap.isPositionWalkable(boss.X, boss.Y-1) && randomY == -1 ){
+                if( worldMap.GetElementAt(boss.X, boss.Y-1) != "H"){
                     boss.Y -= 1;
                 }
             }
             //down
-            if(randomY == 1 && worldMap.GetElementAt(boss.X, boss.Y+1) != "H"){
-                if(worldMap.isPositionWalkable(boss.X, boss.Y+1)){
+            if(worldMap.isPositionWalkable(boss.X, boss.Y+1)  && randomY == 1 ){
+                if(worldMap.GetElementAt(boss.X, boss.Y+1) != "H"){
                     boss.Y += 1;
                 }
             }
             //left
-            if(randomX == -1 && worldMap.GetElementAt(boss.X-1, boss.Y) != "H"){
-                if(worldMap.isPositionWalkable(boss.X-1, boss.Y)){
+            if(worldMap.isPositionWalkable(boss.X-1, boss.Y) && randomX == -1 ){
+                if(worldMap.GetElementAt(boss.X-1, boss.Y) != "H" ){
                     boss.X -= 1;
                 }
             }
             //right
-            if(randomX == 1 && worldMap.GetElementAt(boss.X+1, boss.Y) != "H"){
-                if(worldMap.isPositionWalkable(boss.X+1, boss.Y)){
+            if(worldMap.isPositionWalkable(boss.X+1, boss.Y) && randomX == 1 ){
+                if(worldMap.GetElementAt(boss.X+1, boss.Y) != "H"){
                     boss.X += 1;
                 }
             }

@@ -27,6 +27,5 @@ namespace rpg{
             Write(PlayerIcon);
             ResetColor();
         }
-        //Math.Random();
     }
 }
