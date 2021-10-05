@@ -1,71 +1,51 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
+using static System.Console; 
 
 namespace rpg{
-    public class Hero : Warrior{
-        public string icon = 'H';
-
-        public int[] position = new int[0, 0];
-        public Hero() : base(){
-            this.alive = true;
-            this.health = 25;
-            this.damage = 1;
-
-        }
-         public override void GetHealth(){
-            Console.WriteLine("Método GetHealth (Hero): " + health);
-        }
-
-        public int GetHealthValue(){
-            return this.health;
-        }
-        // public int GetDamage(){
-        //     return this.damage;
-        // }
-        public bool GetAlive(){
-
-            return this.alive;
-        }
-
-        // void IActions.Move(){
-        //     Console.WriteLine("Movendo Herói...");
-        // }
+    public class Hero{
         
-        // //attack in interface action
-        // void IActions.Attack(Monster monster){
-            
-        //     monster.health--;
-        //     Console.WriteLine("Atacando Monstro...");
-        //     monster.Defeated();
-            
-        // }
+        public int X { get; set;}
+        public int Y { get; set;}
+        public int health {get; set;}
+        public int damage {get; set;}
+        private string PlayerIcon;
+        private ConsoleColor PlayerColor;
 
-        public void Attack(Monster monster){
-            Console.WriteLine("Vida atual do monstro é {0}", monster.health);
-            Console.WriteLine("Atacando Monstro...");
-            monster.health--;
-            Console.WriteLine("Vida atual do monstro é {0}", monster.health);
-
+        
+        public Hero(int initialX, int initialY){
+            X = initialX;
+            Y = initialY;
+            health = 3;
+            damage = 1;
+            PlayerIcon = "H";
+            PlayerColor = ConsoleColor.Blue;
         }
+
+        public void Draw(){
+            
+            ForegroundColor = PlayerColor;
+            SetCursorPosition(X, Y);
+            Write(PlayerIcon);
+            ResetColor();
+        }
+
+        public void Attack(){
+            
+        }
+        //attack monster test
+        // public void Attack(Monster monster){
+        //     Console.WriteLine("Vida atual do monstro é {0}", monster.health);
+        //     Console.WriteLine("Atacando Monstro...");
+        //     monster.health--;
+        //     Console.WriteLine("Vida atual do monstro é {0}", monster.health);
+
+        // }
         public void Attack(Boss boss){}
         
 
-        // public int[] toDirection(string move){
-
-        //     switch (move)
-        //     {
-        //         case 'w':
-        //             return new int[] {-1, 0};
-        //         case 'a':
-        //             return new int[] {0, -1};
-        //         case 's':
-        //             return new int[] {1, 0};
-        //         case 'd':
-        //             return new int[] {0, 1};
-        //         default:
-
-        //             return new int[] {0, 0};
-        //     }
+    
             
         }
-    }
 }
