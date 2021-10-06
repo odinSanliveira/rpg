@@ -10,7 +10,7 @@ namespace rpg
         public int Y { get; set;}
         public int health {get; set;}
         public int damage {get; set;}
-        private string PlayerIcon;
+        private string BossIcon;
         private ConsoleColor PlayerColor;
         
         public Boss(int initialX, int initialY){
@@ -18,7 +18,7 @@ namespace rpg
             Y = initialY;
             health = 5;
             damage = 1;
-            PlayerIcon = "B";
+            BossIcon = "B";
             PlayerColor = ConsoleColor.Red;
         }
 
@@ -26,7 +26,7 @@ namespace rpg
             
             ForegroundColor = PlayerColor;
             SetCursorPosition(X, Y);
-            Write(PlayerIcon);
+            Write(BossIcon);
             ResetColor();
         }
 
