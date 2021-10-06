@@ -35,12 +35,11 @@ namespace rpg
         public bool isPositionWalkable(int x, int y){
 
             //checking bounds 
-            if(x < 0 || y < 0 || x >= Cols || y >= Rows || wideMap[y, x] == "B" || wideMap[y, x] == "M"){
+            if(x < 0 || y < 0 || x >= Cols || y >= Rows){
                 return false;
             }
             //checking if is walkable position
-            /*wideMap[y, x] == "P" || wideMap[y, x] == "W" ||*/
-            return wideMap[y, x] == "0" ||  wideMap[y, x] == "D" || wideMap[y, x] == "P";
+            return wideMap[y, x] == "0" ||  wideMap[y, x] == "D";
         }
 
         public bool isHeroThere(int x, int y){

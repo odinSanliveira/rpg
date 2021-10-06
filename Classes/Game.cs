@@ -10,7 +10,8 @@ namespace rpg
         World worldMap;
         Hero hero;
         Boss boss;
-        Monster monster1;
+        Monster monster;
+        Weapon weapon;
         Potion[] potion;
         Random Random = new Random();
 
@@ -53,9 +54,14 @@ namespace rpg
             //maybe a for loop?
             xAxis = Random.Next(2,8);
             yAxis =  Random.Next(2,8);
-            monster1 = new Monster(xAxis, yAxis);
+            monster = new Monster(xAxis, yAxis);
             
             
+            xAxis = Random.Next(2,8);
+            yAxis =  Random.Next(2,8);
+            weapon = new Weapon(xAxis, yAxis);
+            
+            //random position axis for potions
             for (var i = 0; i < 8; i++)
             {   
                 xAxis = Random.Next(2,8);
@@ -84,14 +90,19 @@ namespace rpg
             //get the potions positions
             for (var i = 0; i < 8; i++)
             {   
-               
-                potion[i].GetPosition();
                 potion[i].Draw();
+            
                 
             }
             //draw monster on map            
-            monster1.Draw();
+            monster.Draw();
+
+            //draw weapon on map            
+            weapon.Draw();
+            //draw hero on map
             hero.Draw();
+
+           
             
         }
         //player movement
@@ -105,33 +116,33 @@ namespace rpg
                 
                 switch (key)
                 {
-                    
+                    //hero's health decreases with each step
                     case ConsoleKey.UpArrow:
                         if(worldMap.isPositionWalkable(hero.X, hero.Y-1)){
                             
                             hero.Y -= 1;
-                            // hero.health--;
+                            hero.health--;
                         }
                         break;
                     case ConsoleKey.DownArrow:
                         if(worldMap.isPositionWalkable(hero.X, hero.Y+1)){
                             
                             hero.Y += 1;
-                            // hero.health--;
+                            hero.health--;
                         }
                         break;
                     case ConsoleKey.LeftArrow:
                     if(worldMap.isPositionWalkable(hero.X-1, hero.Y)){
                         
                             hero.X -= 1;
-                            // hero.health--;
+                            hero.health--;
                     }
                         break;
                     case ConsoleKey.RightArrow:
                         if(worldMap.isPositionWalkable(hero.X+1, hero.Y)){
                             
                             hero.X += 1;
-                            // hero.health--;
+                            hero.health--;
                         }
                         break;
                    
@@ -146,7 +157,7 @@ namespace rpg
 
 
             while (true)
-            {
+            {   
                 //draw all set.
                 DrawMap();
                 //check for player input from keyboard.
@@ -154,7 +165,7 @@ namespace rpg
                 //check the boss movement.
                 BossMovement();
                 //check if is a hero around of monster
-                IsHeroAroundOfMonster();
+                // IsHeroAroundOfMonster();
 
                 //random potion position
                 
@@ -167,6 +178,7 @@ namespace rpg
 
                 }else if(elementPosition == "P"){
                     //here is the potion restore statement(test)
+                    //will break if there is a "P"
                     break;
                 }else if(hero.health == 0){
 
@@ -184,11 +196,10 @@ namespace rpg
 
         private void BossMovement(){
             
+            //random values to boss axis
             int randomY = Random.Next(-1,2);
             int randomX = Random.Next(-1,2);
-            // string elementPosition = worldMap.GetElementAt(boss.X, boss.Y);
-            // int randomY = -1;
-            // int randomX = 0;
+
             //below code check if there is a "hero" arround
             
             //up
@@ -230,27 +241,27 @@ namespace rpg
             WriteLine("You've not completed the journey!");
         }
 
-        public void IsHeroAroundOfMonster(){
+        // public void IsHeroAroundOfMonster(){
 
-            if (worldMap.isHeroThere(monster1.X, monster1.Y-1))
-            {
-                hero.health--;
-            }
-            if (worldMap.isHeroThere(monster1.X, monster1.Y+1))
-            {
-                hero.health--;
+        //     if (monster.GetElementAt(monster.X, monster.Y-1, worldMap) == "H")
+        //     {
+        //         hero.health--;
+        //     }
+        //     if (worldMap.isHeroThere(monster.X, monster.Y+1))
+        //     {
+        //         hero.health--;
                 
-            }
-            if (worldMap.isHeroThere(monster1.X-1, monster1.Y))
-            {
-                hero.health--;
+        //     }
+        //     if (worldMap.isHeroThere(monster.X-1, monster.Y))
+        //     {
+        //         hero.health--;
                 
-            }
-            if (worldMap.isHeroThere(monster1.X+1, monster1.Y))
-            {
-                hero.health--;
+        //     }
+        //     if (worldMap.isHeroThere(monster.X+1, monster.Y))
+        //     {
+        //         hero.health--;
                 
-            }
-        }
+        //     }
+        // }
     }
 }

@@ -9,7 +9,7 @@ namespace rpg{
         public int Y { get; set;}
         public int health {get; set;}
         public int damage {get; set;}
-        private string PlayerIcon;
+        private string MonsterIcon;
         private ConsoleColor MonsterColor;
 
         public Monster(int initialX, int initialY){
@@ -17,17 +17,24 @@ namespace rpg{
             Y = initialY;
             health = 3;
             damage = 1;
-            PlayerIcon = "M";
+            MonsterIcon = "M";
             MonsterColor = ConsoleColor.Green;
         }
         public void Draw(){
             
             ForegroundColor = MonsterColor;
             SetCursorPosition(X, Y);
-            Write(PlayerIcon);
+            Write(MonsterIcon);
             ResetColor();
         }
-        
+        public (int, int) GetPosition(){
+
+            return GetCursorPosition();
+        }
+        public string GetElementAt(int x, int y, World grid){
+            string element = grid.GetElementAt(x,y);
+            return element;
+        }
 
     
     }

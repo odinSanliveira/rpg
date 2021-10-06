@@ -42,9 +42,16 @@ namespace rpg{
         //     Console.WriteLine("Vida atual do monstro é {0}", monster.health);
 
         // }
-        public void Attack(Boss boss){}
+        public void AttackBoss(Boss boss){}
         
+        public (int, int) GetPosition(){
 
+            return GetCursorPosition();
+        }
+        public (int, int) GetPositionAt(int x, int y){
+
+            return GetCursorPosition();
+        }
     
             
         }
