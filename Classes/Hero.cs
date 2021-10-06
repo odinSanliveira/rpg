@@ -10,14 +10,14 @@ namespace rpg{
         public int Y { get; set;}
         public int health {get; set;}
         public int damage {get; set;}
-        private string PlayerIcon;
+        public string PlayerIcon;
         private ConsoleColor PlayerColor;
 
         
         public Hero(int initialX, int initialY){
             X = initialX;
             Y = initialY;
-            health = 3;
+            health = 25;
             damage = 1;
             PlayerIcon = "H";
             PlayerColor = ConsoleColor.Blue;

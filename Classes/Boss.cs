@@ -29,6 +29,7 @@ namespace rpg
             Write(PlayerIcon);
             ResetColor();
         }
+
         
         
     }

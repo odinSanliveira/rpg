@@ -17,7 +17,7 @@ namespace rpg{
             Y = initialY;
             health = 3;
             damage = 1;
-            PlayerIcon = "B";
+            PlayerIcon = "M";
             PlayerColor = ConsoleColor.Green;
         }
         public void Draw(){
@@ -26,6 +26,36 @@ namespace rpg{
             SetCursorPosition(X, Y);
             Write(PlayerIcon);
             ResetColor();
+        }
+        //need to 
+        // public int CheckIfPositionIsNull(int x, int y){
+            
+        //     if(SetCursorPosition(x, y) != "0"){
+        //         SetCursorPosition()
+        //     }
+        // }
+
+        public void HeroIsAround(Monster m, World grid, Hero h){
+            
+            if( grid.GetElementAt(m.X, m.Y-1) == "H"){
+                // WriteLine("Herói a Esquerda");
+                h.health--;
+            }
+            if( grid.GetElementAt(m.X, m.Y+1) == "H"){
+                // WriteLine("Herói a Direita");
+                
+                h.health--;
+                    
+            }
+            if( grid.GetElementAt(m.X-1, m.Y) == "H"){
+                // WriteLine("Herói Acima");
+                h.health--;
+                    
+            }
+            if( grid.GetElementAt(m.X+1, m.Y) == "H"){
+                // WriteLine("Herói Abaixo");                    
+                h.health--;
+            }
         }
     }
 }

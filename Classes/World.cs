@@ -34,7 +34,7 @@ namespace rpg
         public bool isPositionWalkable(int x, int y){
 
             //checking bounds 
-            if(x < 0 || y < 0 || x >= Cols || y >= Rows || wideMap[y, x] == "H"){
+            if(x < 0 || y < 0 || x >= Cols || y >= Rows || wideMap[y, x] == "H" || wideMap[y, x] == "M"){
                 return false;
             }
             //checking if is walkable position
